@@ -7,8 +7,8 @@ from sklearn import model_selection, preprocessing, ensemble
 from sklearn.metrics import log_loss
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
-train_df = pd.read_json("../input/train.json")
-test_df = pd.read_json("../input/test.json")
+train_df = pd.read_json("train.json")
+test_df = pd.read_json("test.json")
 
 #define function for XGB model running
 
@@ -203,7 +203,7 @@ preds, model = runXGB(train_X, train_y, test_X, num_rounds=2000)
 out_df = pd.DataFrame(preds)
 out_df.columns = ["high", "medium", "low"]
 out_df["listing_id"] = test_df.listing_id.values
-out_df.to_csv("xgb_v2.csv", index=False)
+out_df.to_csv("SUB_01.csv", index=False)
 
 
 
