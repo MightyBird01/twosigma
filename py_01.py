@@ -7,8 +7,13 @@ from sklearn import model_selection, preprocessing, ensemble
 from sklearn.metrics import log_loss
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
-train_df = pd.read_json("train.json")
-test_df = pd.read_json("test.json")
+try:
+    train_df = pd.read_json("/home/gs/DataScientist/twosigma/train.json")
+    test_df = pd.read_json("/home/gs/DataScientist/twosigma/test.json")
+except:
+    train_df = pd.read_json("/home/ec2-user/DataScientist/twosigma/train.json")
+    test_df = pd.read_json("/home/ec2-user/DataScientist/twosigma/test.json")
+        
 
 #define function for XGB model running
 
